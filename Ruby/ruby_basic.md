@@ -65,6 +65,19 @@ p array
 puts "a=0" if a==0  #"a=0"
 puts "a=0" if a==1  #출력X
 
+#ruby warrior
+class Player
+  def play_turn(warrior)
+    # cool code goes here
+  
+  if warrior.feel.enemy?
+   warrior.attack!
+  else  
+    warrior.walk!
+  end
+end
+end
+
 #while
 c=0
 result =c+=2 while c<50
