@@ -95,3 +95,139 @@ hi
 
 
 
+#### 7.method
+
+- 대부분의 언어
+
+  - 클래스 안: function
+  - 클래스 밖: method
+
+- 루비에서는 모든 function은 method
+
+- ```ruby
+  #루비에서의 메소드 선언
+  [4] pry(main)> def simple
+  [4] pry(main)*   puts "method simple"  
+  [4] pry(main)* end  
+  => :simple
+  [5] pry(main)> simple
+  method simple
+  => nil
+  
+  #()를 명시적으로 적어줄 수도 있음
+  [4] pry(main)> def simple()
+  [4] pry(main)*   puts "method simple"  
+  [4] pry(main)* end 
+  ```
+
+- ~~~ruby
+  #return
+  [7] pry(main)> def add(a,b)
+  [7] pry(main)*   return a+b
+  [7] pry(main)* end  
+  => :add
+  [8] pry(main)> add 1,2
+  => 3
+  
+  #return이 없어도 마지막 행이 자동으로 return행으로 됨
+  [9] pry(main)> def add2(a,b)
+  [9] pry(main)*   a+b
+  [9] pry(main)* end  
+  => :add2
+  [10] pry(main)> add2 1,2
+  => 3
+  
+  #return을 선택적으로 사용 가능
+  [11] pry(main)> def divide(a,b)
+  [11] pry(main)*   return "Idon't think so" if b==0                                                                                                  
+  [11] pry(main)*   a/b
+  [11] pry(main)* end  
+  => :divide
+  [12] pry(main)> divide 2,0
+  => "Idon't think so"
+  [13] pry(main)> divide 4,2
+  => 2
+  ~~~
+
+- 기본 매개변수
+
+- ~~~ruby
+  def factorial(n)
+      n==0? 1 : n*factorial(n-1)
+  end
+  
+  factorial
+  #매개변수 안넣고 부르면 에러
+  #ArgumentError: wrong number of arguments (given 0, expected 1)from (pry):39:in `factorial'
+  
+  #매개변수에 10을 디폴트로 넣음
+  def factorial_default(n=10)
+      n==0? 1 : n*factorial(n-1)
+  end
+  
+  factorial_default
+  #=> 3628800
+  
+  ~~~
+
+#### 8. block
+
+~~~ruby
+
+# 0부터 2까지 세번의 값을 asdf에 담고 밑에 코드인 출력하는 코드를 실행하는 것
+[29] pry(main)> 3.times do |asdf|                                                      [29] pry(main)*   puts asdf  #이 부분이 블럭
+[29] pry(main)* end  
+0
+1
+2
+=> 3
+
+#
+3.times {puts "hello"}
+
+# 
+[31] pry(main)> def hihi
+[31] pry(main)*   return "noBlock" unless block_given?
+[31] pry(main)*   yield 
+[31] pry(main)* end  
+=> :hihi
+[32] pry(main)> hihi
+=> "noBlock"
+[33] pry(main)> hihi{puts"hihi"}
+hihi
+=> nil
+
+~~~
+
+#### 9. String
+
+~~~ruby
+# '' vs ""
+[34] pry(main)> a="안녕"
+=> "안녕"
+[35] pry(main)> a="안녕.\n whfflek"
+=> "안녕.\n whfflek"
+[36] pry(main)> b='dkssud\n sjanwhfflek'
+=> "dkssud\\n sjanwhfflek"
+[37] pry(main)> puts a
+안녕.
+ whfflek
+=> nil
+[38] pry(main)> puts b
+dkssud\n sjanwhfflek
+=> nil
+[39] pry(main)> name="yoojung"
+=> "yoojung"
+[40] pry(main)> a="#{name}님 안녕하세요 "                                                                                                           
+=> "yoojung님 안녕하세요 "
+[41] pry(main)> b='#{name}님 안녕하세요 '
+=> "\#{name}님 안녕하세요 "
+[42] pry(main)> puts a
+yoojung님 안녕하세요 
+=> nil
+[43] pry(main)> puts b
+#{name}님 안녕하세요 
+=> nil
+[44] pry(main)> 
+~~~
+
