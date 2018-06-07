@@ -203,19 +203,15 @@ hihi
 
 ~~~ruby
 # '' vs ""
-[34] pry(main)> a="안녕"
-=> "안녕"
-[35] pry(main)> a="안녕.\n whfflek"
-=> "안녕.\n whfflek"
-[36] pry(main)> b='dkssud\n sjanwhfflek'
-=> "dkssud\\n sjanwhfflek"
-[37] pry(main)> puts a
+a="안녕.\n whfflek"
+puts a
 안녕.
  whfflek
-=> nil
-[38] pry(main)> puts b
+
+b='dkssud\n sjanwhfflek'
+puts b
 dkssud\n sjanwhfflek
-=> nil
+
 [39] pry(main)> name="yoojung"
 => "yoojung"
 [40] pry(main)> a="#{name}님 안녕하세요 "                                                                                                           
@@ -229,5 +225,91 @@ yoojung님 안녕하세요
 #{name}님 안녕하세요 
 => nil
 [44] pry(main)> 
+
+#upcase=>뒤에 !를 붙이면 upcase상태로 바로 변수에 저장됨
+[45] pry(main)> my_name="you jung"
+=> "you jung"
+[46] pry(main)> my_name.upcase
+=> "YOU JUNG"
+[47] pry(main)> my_name.upcase!
+=> "YOU JUNG"
+[48] pry(main)> my_name
+=> "YOU JUNG"
+
+
 ~~~
+
+#### 10. Array
+
+~~~ruby
+[53] pry(main)> array=[]
+=> []
+[54] pry(main)> array<<5
+=> [5]
+[55] pry(main)> array<<10
+=> [5, 10]
+[56] pry(main)> array
+=> [5, 10]
+[57] pry(main)> arr=[]
+=> []
+[58] pry(main)> arr<<1
+=> [1]
+[59] pry(main)> arr<< "string"
+=> [1, "string"]
+
+[60] pry(main)> arr<<:s
+=> [1, "string", :s]
+[61] pry(main)> arr<< true
+=> [1, "string", :s, true]
+[62] pry(main)> arr[1]
+=> "string"
+[63] pry(main)> arr[-1]
+=> true
+[64] pry(main)> arr[-2]
+=> :s
+[65] pry(main)> arr[1..2]
+=> ["string", :s]
+[66] pry(main)> arr << 5
+=> [1, "string", :s, true, 5]
+[67] pry(main)> arr.push 999
+=> [1, "string", :s, true, 5, 999]
+[69] pry(main)> arr.pop 1                                                             
+=> [999]
+[70] pry(main)> arr
+=> [1, "string", :s, true, 5]
+[71] pry(main)> arr.shift 1
+=> [1]
+[72] pry(main)> arr
+=> ["string", :s, true, 5]
+[73] pry(main)> 
+
+~~~
+
+#### 11.hash
+
+-  key value 로 이루어져있다.
+
+- ~~~ruby
+  #hash 3가지 방식
+  hash1 = {:key => value}
+  hash2= {key: value}
+  hash3= {"key" => value}
+  
+  ~~~
+
+- each 반복하기
+
+- ~~~ruby
+  hash1.each do |k,v|
+      #k,v는 어떠한 문자로 적어도 됨
+      puts "#{keyy}:#{valuee}"
+       end  
+  
+  name:youjung
+  age:27
+  hometown:ko
+  => {:name=>"youjung", :age=>27, "hometown"=>"ko"}
+  ~~~
+
+- https://gist.github.com/nacyot/7624036
 
