@@ -242,46 +242,42 @@ yoojung님 안녕하세요
 #### 10. Array
 
 ~~~ruby
-[53] pry(main)> array=[]
-=> []
-[54] pry(main)> array<<5
+array=[]
+array<<5
 => [5]
-[55] pry(main)> array<<10
+array<<10
 => [5, 10]
-[56] pry(main)> array
-=> [5, 10]
-[57] pry(main)> arr=[]
-=> []
-[58] pry(main)> arr<<1
+
+arr<<1
 => [1]
-[59] pry(main)> arr<< "string"
+arr<< "string"
 => [1, "string"]
 
-[60] pry(main)> arr<<:s
+arr<<:s
 => [1, "string", :s]
-[61] pry(main)> arr<< true
+arr<< true
 => [1, "string", :s, true]
-[62] pry(main)> arr[1]
+arr[1]
 => "string"
-[63] pry(main)> arr[-1]
+arr[-1]
 => true
-[64] pry(main)> arr[-2]
+arr[-2]
 => :s
-[65] pry(main)> arr[1..2]
+arr[1..2]
 => ["string", :s]
-[66] pry(main)> arr << 5
+arr << 5
 => [1, "string", :s, true, 5]
-[67] pry(main)> arr.push 999
+arr.push 999
 => [1, "string", :s, true, 5, 999]
-[69] pry(main)> arr.pop 1                                                             
+arr.pop 1                                                             
 => [999]
-[70] pry(main)> arr
+arr
 => [1, "string", :s, true, 5]
-[71] pry(main)> arr.shift 1
+arr.shift 1
 => [1]
-[72] pry(main)> arr
+arr
 => ["string", :s, true, 5]
-[73] pry(main)> 
+
 
 ~~~
 
@@ -312,4 +308,3 @@ yoojung님 안녕하세요
   ~~~
 
 - https://gist.github.com/nacyot/7624036
-
